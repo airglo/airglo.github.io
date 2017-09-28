@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Bouncing Box</title>
+	<script src="jquery.min.js"></script>
+
+	<!-- BEGIN CSS -->
+	<style>
+		/* TODO 1 */
+		[class="box"] {
+			display: block;
+			position: absolute;
+			width: 70px;
+			height: 70px;
+			top: 100px;
+			left: 0px;
+			background-color: teal;
+			font-size: 300%;
+			text-align: center;
+		}
+	</style>
+
+</head>
+<body class="window">
+	<!-- HTML for the box -->
+	<div class="box">?</div>
+
+	<!-- BEGIN JAVASCRIPT -->
+	<script>
+		(function(){
+			'use strict'; 
+
+			// Variable declarations
+
+
+			
+
+			// jQuery stuff setup for you
+
+			// TODO 2
+			var box;
+			var windowWidth;
+			var windowheight;
+			var update;
+			var handleBoxClick;
+			var hdirection;
+			var vdirection; 
+			var hposition;
+			var vposition; 
+			var points;
+			var speed;
+			
+			box = $('.box');
+			windowWidth = $('.window').width();
+			windowheight = $('.window').height();
+			
+			hposition = 0;
+			vposition = 0;
+			points = 0;
+			speed = 10;
+			hdirection = 1;
+			vdirection = 1; 
+		
+		box.css('left', hposition);
+		box.css('top', vposition);
+		box.text(points);
+
+			// TODO 3 / 4
+			update = function() {
+			windowWidth = $('.window').width();
+			windowheight = $('.window').height();
+
+				hposition += (speed * hdirection);
+				vposition += (speed * vdirection);
+				box.css('left', hposition);
+				box.css('top', vposition);
+			
+    			if(hposition > windowWidth) {
+    			hdirection = -1;
+    				
+    			}
+				if (hposition < 0) {
+    			hdirection = 1;
+					
+				}
+    			if(vposition > windowheight) {
+    			vdirection = -1;
+    				
+    			}
+				if (vposition < 0) {
+    			vdirection = 1;
+					
+				}
+    			box.css('left', hposition);
+				box.css('top', vposition);
+					box.text(points);
+    
+			};
+
+
+			// TODO 5 / 6
+			handleBoxClick = function() {
+				speed = speed + 3;
+				hposition = 0;
+				points = points + 1;
+			}; 
+			
+
+
+			//this calls update every 50 milliseconds
+			setInterval(update, 50);
+			
+
+			// this calls the handle handleBoxClick function every time the box is clicked on
+			box.on('click', handleBoxClick);
+
+		})();
+	</script>
+</body>
+</html>
