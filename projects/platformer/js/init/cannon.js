@@ -14,7 +14,13 @@
         // ALL YOUR CODE GOES BELOW HERE ///////////////////////////////////////
         
         // example: 
+        cannon.create.onTop(750);
+        cannon.create.onTop(650);
+        cannon.create.onTop(550);
         cannon.create.onTop(450);
+        cannon.create.onTop(350);
+        cannon.create.onTop(250);
+        cannon.create.onTop(150);
         
         
         
